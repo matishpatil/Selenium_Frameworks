@@ -1,0 +1,12 @@
+*** Variables ***
+${initial_balance_UI}=  xpath://div[@class='panel panel-success']//div[@class='col-xs-6 text-right']
+${USERNAME_ELEMENT}=  xpath://input[@name="username"]
+${PASSWORD_ELEMENT}=  xpath://input[@name="password"]
+${SIGN_IN_BUTTON}=  xpath://button[@class="btn btn-lg btn-primary btn-block"]
+${Go_To_Withdrawal}=  xpath://span[text()="Go to Withdrawal"]
+${Account_Field}=  xpath://select[@name="accountType"]
+${Account_Type}=  xpath://option[text()="Savings"]
+${Amount}=  xpath://input[@id="amount"]
+${Deposit_Button}=  xpath://button[@type="submit"]
+${Update_balance_UI}=  xpath://div[@class='panel panel-success']//div[@class='col-xs-6 text-right']
+${Go_To_Deposit}=  xpath://span[text()="Go to Deposit"]

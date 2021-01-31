@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.0.4 (Python 3.7.6 on win32)" generated="20200924 11:13:09.078">
+<suite id="s1" name="Saving Balance test cases" source="C:\Demo\Robot\Data_Connect\Data_Connect\TestCase\Saving_Balance_test_cases.robot">
+<test id="s1-t1" name="Updated balance perform debit operation">
+<kw name="initialize_application" library="Balance_keywords" type="setup">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20200924 11:13:10.016" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:8084/index'.</msg>
+<status status="PASS" starttime="20200924 11:13:10.016" endtime="20200924 11:13:14.549"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20200924 11:13:14.549" endtime="20200924 11:13:16.694"></status>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<arguments>
+<arg>0.2s</arg>
+</arguments>
+<status status="PASS" starttime="20200924 11:13:16.694" endtime="20200924 11:13:16.695"></status>
+</kw>
+<status status="PASS" starttime="20200924 11:13:10.015" endtime="20200924 11:13:16.695"></status>
+</kw>
+<kw name="Storing Initial Balance" library="Balance_keywords">
+<assign>
+<var>${db_init}</var>
+</assign>
+<kw name="Init Balance" library="DB_init">
+<assign>
+<var>${db_init}</var>
+</assign>
+<msg timestamp="20200924 11:13:16.876" level="INFO">Value of pd is 0    43200.0
+Name: account_balance, dtype: float64
+f value is 43200.0</msg>
+<msg timestamp="20200924 11:13:16.876" level="INFO">${db_init} = 43200.0</msg>
+<status status="PASS" starttime="20200924 11:13:16.696" endtime="20200924 11:13:16.876"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${db_init}</arg>
+</arguments>
+<status status="PASS" starttime="20200924 11:13:16.876" endtime="20200924 11:13:16.877"></status>
+</kw>
+<msg timestamp="20200924 11:13:16.877" level="INFO">${db_init} = 43200.0</msg>
+<status status="PASS" starttime="20200924 11:13:16.695" endtime="20200924 11:13:16.877"></status>
+</kw>
+<kw name="Storing UI value" library="Balance_keywords">
+<assign>
+<var>${value}</var>
+</assign>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${USERNAME_ELEMENT}</arg>
+<arg>${VALID_USERNAME}</arg>
+</arguments>
+<msg timestamp="20200924 11:13:16.878" level="INFO">Typing text 'swati' into text field 'xpath://input[@name="username"]'.</msg>
+<status status="PASS" starttime="20200924 11:13:16.878" endtime="20200924 11:13:17.654"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${PASSWORD_ELEMENT}</arg>
+<arg>${VALID_PASSWORD}</arg>
+</arguments>
+<msg timestamp="20200924 11:13:17.655" level="INFO">Typing text 'swati' into text field 'xpath://input[@name="password"]'.</msg>
+<status status="PASS" starttime="20200924 11:13:17.654" endtime="20200924 11:13:18.485"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>${SIGN_IN_BUTTON}</arg>
+</arguments>
+<msg timestamp="20200924 11:13:18.487" level="INFO">Clicking button 'xpath://button[@class="btn btn-lg btn-primary btn-block"]'.</msg>
+<status status="PASS" starttime="20200924 11:13:18.485" endtime="20200924 11:13:20.774"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>${initial_balance_UI}</arg>
+</arguments>
+<assign>
+<var>${value}</var>
+</assign>
+<msg timestamp="20200924 11:13:21.207" level="INFO">${value} = 43200.00</msg>
+<status status="PASS" starttime="20200924 11:13:20.774" endtime="20200924 11:13:21.207"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${value}</arg>
+</arguments>
+<status status="PASS" starttime="20200924 11:13:21.207" endtime="20200924 11:13:21.207"></status>
+</kw>
+<msg timestamp="20200924 11:13:21.208" level="INFO">${value} = 43200.00</msg>
+<status status="PASS" starttime="20200924 11:13:16.877" endtime="20200924 11:13:21.208"></status>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<arguments>
+<arg>${db_init}</arg>
+<arg>${value}</arg>
+</arguments>
+<msg timestamp="20200924 11:13:21.208" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200924 11:13:21.208" endtime="20200924 11:13:21.208"></status>
+</kw>
+<kw name="Storing UI value after withdraw amount" library="Balance_keywords">
+<assign>
+<var>${value_update_wihdraw}</var>
+</assign>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${Go_To_Withdrawal}</arg>
+</arguments>
+<msg timestamp="20200924 11:13:21.209" level="INFO">Clicking element 'xpath://span[text()="Go to Withdrawal"]'.</msg>
+<status status="PASS" starttime="20200924 11:13:21.209" endtime="20200924 11:13:21.927"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${Account_Field}</arg>
+</arguments>
+<msg timestamp="20200924 11:13:21.927" level="INFO">Clicking element 'xpath://select[@name="accountType"]'.</msg>
+<status status="PASS" starttime="20200924 11:13:21.927" endtime="20200924 11:13:22.488"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${Account_Type}</arg>
+</arguments>
+<msg timestamp="20200924 11:13:22.488" level="INFO">Clicking element 'xpath://option[text()="Savings"]'.</msg>
+<status status="PASS" starttime="20200924 11:13:22.488" endtime="20200924 11:13:22.923"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${Amount}</arg>
+<arg>${debit_amount}</arg>
+</arguments>
+<msg timestamp="20200924 11:13:22.923" level="INFO">Typing text '300' into text field 'xpath://input[@id="amount"]'.</msg>
+<status status="PASS" starttime="20200924 11:13:22.923" endtime="20200924 11:13:23.603"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>${Deposit_Button}</arg>
+</arguments>
+<msg timestamp="20200924 11:13:23.603" level="INFO">Clicking button 'xpath://button[@type="submit"]'.</msg>
+<status status="PASS" starttime="20200924 11:13:23.603" endtime="20200924 11:13:25.034"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>${Update_balance_UI}</arg>
+</arguments>
+<assign>
+<var>${value_update_wihdraw}</var>
+</assign>
+<msg timestamp="20200924 11:13:25.502" level="INFO">${value_update_wihdraw} = 42900.00</msg>
+<status status="PASS" starttime="20200924 11:13:25.034" endtime="20200924 11:13:25.502"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${value_update_wihdraw}</arg>
+</arguments>
+<status status="PASS" starttime="20200924 11:13:25.504" endtime="20200924 11:13:25.505"></status>
+</kw>
+<msg timestamp="20200924 11:13:25.506" level="INFO">${value_update_wihdraw} = 42900.00</msg>
+<status status="PASS" starttime="20200924 11:13:21.208" endtime="20200924 11:13:25.507"></status>
+</kw>
+<kw name="Storing Final Balance" library="Balance_keywords">
+<assign>
+<var>${db_Updated}</var>
+</assign>
+<kw name="Final Balance" library="DB_Updated">
+<assign>
+<var>${db_final}</var>
+</assign>
+<msg timestamp="20200924 11:13:25.545" level="INFO">Value of pd is 0    42900.0
+Name: account_balance, dtype: float64
+f value is 42900.0</msg>
+<msg timestamp="20200924 11:13:25.546" level="INFO">${db_final} = 42900.0</msg>
+<status status="PASS" starttime="20200924 11:13:25.510" endtime="20200924 11:13:25.546"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${db_final}</arg>
+</arguments>
+<status status="PASS" starttime="20200924 11:13:25.547" endtime="20200924 11:13:25.549"></status>
+</kw>
+<msg timestamp="20200924 11:13:25.550" level="INFO">${db_Updated} = 42900.0</msg>
+<status status="PASS" starttime="20200924 11:13:25.508" endtime="20200924 11:13:25.550"></status>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<arguments>
+<arg>${db_Updated}</arg>
+<arg>${value_update_wihdraw}</arg>
+</arguments>
+<msg timestamp="20200924 11:13:25.552" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200924 11:13:25.551" endtime="20200924 11:13:25.552"></status>
+</kw>
+<kw name="terminate_application" library="Balance_keywords" type="teardown">
+<kw name="Run Keyword If Test Failed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<arguments>
+<arg>capture page screenshot</arg>
+</arguments>
+<status status="PASS" starttime="20200924 11:13:25.555" endtime="20200924 11:13:25.556"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200924 11:13:25.556" endtime="20200924 11:13:27.840"></status>
+</kw>
+<status status="PASS" starttime="20200924 11:13:25.553" endtime="20200924 11:13:27.840"></status>
+</kw>
+<status status="PASS" starttime="20200924 11:13:10.014" endtime="20200924 11:13:27.841" critical="yes"></status>
+</test>
+<test id="s1-t2" name="Updated balance perform credit operation">
+<kw name="initialize_application" library="Balance_keywords" type="setup">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20200924 11:13:27.849" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:8084/index'.</msg>
+<status status="PASS" starttime="20200924 11:13:27.848" endtime="20200924 11:13:32.233"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20200924 11:13:32.233" endtime="20200924 11:13:34.572"></status>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<arguments>
+<arg>0.2s</arg>
+</arguments>
+<status status="PASS" starttime="20200924 11:13:34.572" endtime="20200924 11:13:34.572"></status>
+</kw>
+<status status="PASS" starttime="20200924 11:13:27.847" endtime="20200924 11:13:34.572"></status>
+</kw>
+<kw name="Storing UI value after credit amount" library="Balance_keywords">
+<assign>
+<var>${value_update_credit}</var>
+</assign>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${USERNAME_ELEMENT}</arg>
+<arg>${VALID_USERNAME}</arg>
+</arguments>
+<msg timestamp="20200924 11:13:34.573" level="INFO">Typing text 'swati' into text field 'xpath://input[@name="username"]'.</msg>
+<status status="PASS" starttime="20200924 11:13:34.573" endtime="20200924 11:13:35.240"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${PASSWORD_ELEMENT}</arg>
+<arg>${VALID_PASSWORD}</arg>
+</arguments>
+<msg timestamp="20200924 11:13:35.240" level="INFO">Typing text 'swati' into text field 'xpath://input[@name="password"]'.</msg>
+<status status="PASS" starttime="20200924 11:13:35.240" endtime="20200924 11:13:35.932"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>${SIGN_IN_BUTTON}</arg>
+</arguments>
+<msg timestamp="20200924 11:13:35.932" level="INFO">Clicking button 'xpath://button[@class="btn btn-lg btn-primary btn-block"]'.</msg>
+<status status="PASS" starttime="20200924 11:13:35.932" endtime="20200924 11:13:38.100"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${Go_To_Deposit}</arg>
+</arguments>
+<msg timestamp="20200924 11:13:38.100" level="INFO">Clicking element 'xpath://span[text()="Go to Deposit"]'.</msg>
+<status status="PASS" starttime="20200924 11:13:38.100" endtime="20200924 11:13:38.840"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${Account_Field}</arg>
+</arguments>
+<msg timestamp="20200924 11:13:38.841" level="INFO">Clicking element 'xpath://select[@name="accountType"]'.</msg>
+<status status="PASS" starttime="20200924 11:13:38.840" endtime="20200924 11:13:39.379"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${Account_Type}</arg>
+</arguments>
+<msg timestamp="20200924 11:13:39.380" level="INFO">Clicking element 'xpath://option[text()="Savings"]'.</msg>
+<status status="PASS" starttime="20200924 11:13:39.380" endtime="20200924 11:13:39.840"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${Amount}</arg>
+<arg>${credit_amount}</arg>
+</arguments>
+<msg timestamp="20200924 11:13:39.840" level="INFO">Typing text '500' into text field 'xpath://input[@id="amount"]'.</msg>
+<status status="PASS" starttime="20200924 11:13:39.840" endtime="20200924 11:13:40.592"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>${Deposit_Button}</arg>
+</arguments>
+<msg timestamp="20200924 11:13:40.592" level="INFO">Clicking button 'xpath://button[@type="submit"]'.</msg>
+<status status="PASS" starttime="20200924 11:13:40.592" endtime="20200924 11:13:41.981"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>${Update_balance_UI}</arg>
+</arguments>
+<assign>
+<var>${value_update_credit}</var>
+</assign>
+<msg timestamp="20200924 11:13:42.444" level="INFO">${value_update_credit} = 43400.00</msg>
+<status status="PASS" starttime="20200924 11:13:41.981" endtime="20200924 11:13:42.444"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${value_update_credit}</arg>
+</arguments>
+<status status="PASS" starttime="20200924 11:13:42.444" endtime="20200924 11:13:42.446"></status>
+</kw>
+<msg timestamp="20200924 11:13:42.446" level="INFO">${value_update_credit} = 43400.00</msg>
+<status status="PASS" starttime="20200924 11:13:34.572" endtime="20200924 11:13:42.447"></status>
+</kw>
+<kw name="Storing Final Balance" library="Balance_keywords">
+<assign>
+<var>${db_Updated}</var>
+</assign>
+<kw name="Final Balance" library="DB_Updated">
+<assign>
+<var>${db_final}</var>
+</assign>
+<msg timestamp="20200924 11:13:42.478" level="INFO">Value of pd is 0    43400.0
+Name: account_balance, dtype: float64
+f value is 43400.0</msg>
+<msg timestamp="20200924 11:13:42.478" level="INFO">${db_final} = 43400.0</msg>
+<status status="PASS" starttime="20200924 11:13:42.448" endtime="20200924 11:13:42.478"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${db_final}</arg>
+</arguments>
+<status status="PASS" starttime="20200924 11:13:42.479" endtime="20200924 11:13:42.480"></status>
+</kw>
+<msg timestamp="20200924 11:13:42.480" level="INFO">${db_Updated} = 43400.0</msg>
+<status status="PASS" starttime="20200924 11:13:42.447" endtime="20200924 11:13:42.480"></status>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<arguments>
+<arg>${db_Updated}</arg>
+<arg>${value_update_credit}</arg>
+</arguments>
+<msg timestamp="20200924 11:13:42.483" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200924 11:13:42.482" endtime="20200924 11:13:42.483"></status>
+</kw>
+<kw name="terminate_application" library="Balance_keywords" type="teardown">
+<kw name="Run Keyword If Test Failed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<arguments>
+<arg>capture page screenshot</arg>
+</arguments>
+<status status="PASS" starttime="20200924 11:13:42.485" endtime="20200924 11:13:42.486"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200924 11:13:42.486" endtime="20200924 11:13:44.786"></status>
+</kw>
+<status status="PASS" starttime="20200924 11:13:42.484" endtime="20200924 11:13:44.788"></status>
+</kw>
+<status status="PASS" starttime="20200924 11:13:27.845" endtime="20200924 11:13:44.789" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20200924 11:13:09.079" endtime="20200924 11:13:44.798"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0">Critical Tests</stat>
+<stat pass="2" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" id="s1" name="Saving Balance test cases">Saving Balance test cases</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
